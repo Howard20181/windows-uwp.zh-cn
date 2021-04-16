@@ -7,16 +7,19 @@ keywords: windows win32, 桌面开发, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 5ca69825acd12d67167b009474a2afe9fecc8187
-ms.sourcegitcommit: 0be372d792b58a260634b4e008e180f0447a46ff
+ms.openlocfilehash: af934c2b1f4eeaa04693c3587915421a6d1453d1
+ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549673"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107574642"
 ---
 # <a name="get-started-with-project-reunion"></a>Project Reunion 入门
 
 本文提供了有关在开发计算机上安装 Visual Studio 2019 项目中的扩展插件的说明，并在新项目或现有项目中使用 "项目使用"。 在安装和使用 "项目留尼汪岛" 之前，请参阅 [限制和已知问题](index.md#limitations-and-known-issues)。
+
+> [!NOTE]
+> 如果创建的项目使用的是早期版本的项目留尼汪岛或 WinUI 3，则可以 [更新项目以使用最新版本](update-existing-projects-to-the-latest-release.md)。
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 
@@ -62,6 +65,17 @@ ms.locfileid: "106549673"
 
 6. 若要在 Visual Studio 2019 16.10 Preview 中使用 WinUI 3 工具（如 "实时可视化树"、"热重载" 和 "实时属性资源管理器"），必须使用 Visual Studio 预览功能启用 WinUI 3 工具。 有关说明，请参阅 [如何在 VS 16.9 预览版4中为 WinUI 3 启用 UI 工具](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)。
 
+7. 若要接收来自最新稳定版本的项目留尼汪岛0.5 的所有修补程序，需要将 .NET SDK 显式设置为最新版本。 为此，请将以下项组添加到 .csproj 文件中，并保存项目：
+
+    ```xml
+    <ItemGroup>            
+        <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.18362.16" />
+        <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.18362.16" />
+    </ItemGroup>
+    ```
+
+    请注意，可以在可能的情况下删除 .NET 5.0.6。 
+    
 ## <a name="create-a-new-project-that-uses-project-reunion"></a>创建使用 Project Reunion 的新项目
 
 适用于 Visual Studio 2019 (包含适用于 "桌面应用" 和 "UWP 应用的预览扩展" 的扩展的项目 "0.5 扩展") 提供使用基于 WinUI 3 的 UI 层生成项目的项目模板，并提供对所有其他项目的所有其他 Api 的访问权限。 有关可用项目模板的详细信息，请参阅 [Visual Studio 中的 WinUI 3 项目模板](..\winui\winui3\winui-project-templates-in-visual-studio.md)。
@@ -94,7 +108,7 @@ ms.locfileid: "106549673"
 1. 在 Visual Studio 2019 中，打开现有桌面项目（C#/.NET 5 或 C++/WinRT）或 UWP 项目。
 
     > [!NOTE]
-    > 如果有 c #/.NET 5 桌面项目，请确保将项目文件中的 **TargetFramework** 元素分配给特定于 windows 10 的 .net 5 名字对象，例如 **NET 5.0-Windows 10.0.19041.0**，以便它可以调用 Windows 运行时 api。 有关详情，请参阅[本部分](../../apps/desktop/modernize/desktop-to-uwp-enhance.md#net-5-use-the-target-framework-moniker-option)。
+    > 如果有 c #/.NET 5 桌面项目，请确保将项目文件中的 **TargetFramework** 元素分配给特定于 windows 10 的 .net 5 名字对象，例如 **NET 5.0-Windows 10.0.19041.0**，以便它可以调用 Windows 运行时 api。 有关详细信息，请参阅[此部分](../../apps/desktop/modernize/desktop-to-uwp-enhance.md#net-5-use-the-target-framework-moniker-option)。
 
 2. 确保已启用[包引用](/nuget/consume-packages/package-references-in-project-files)：
 
