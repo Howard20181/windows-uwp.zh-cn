@@ -13,12 +13,12 @@ design-contact: ksulliv
 dev-contact: niallm
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 2a84dcc209fa0fcd897668293cb136a5448e7254
-ms.sourcegitcommit: 4f032d7bb11ea98783db937feed0fa2b6f9950ef
+ms.openlocfilehash: f3d21f60a26f7a1c6a63d678c60e1d9538580d55
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91829515"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219040"
 ---
 # <a name="command-bar"></a>命令栏
 
@@ -126,9 +126,14 @@ PrimaryCommands 和 SecondaryCommands 都只能使用[AppBarButton](/uwp/api/Win
 
 应用栏按钮控件以一个图标和文本标签为特征。 这些控件经过优化以便在命令栏中使用，它们的外观根据控件是用在命令栏中还是溢出菜单中进行更改。
 
-溢出菜单中图标的大小是 16x16 像素，这小于主要命令区域中的图标（它们是 20x20 像素）。 如果使用 SymbolIcon、FontIcon 或 PathIcon，则图标会在命令进入辅助命令区域时，自动缩放为正确大小而不会失真。 
+#### <a name="icons"></a>图标
 
-### <a name="button-labels"></a>按钮标签
+在主命令区域中显示时，图标大小为 20x20px；在溢出菜单中，图标按 16x16px 显示。 如果使用 [SymbolIcon](/uwp/api/windows.ui.xaml.controls.symbolicon)、[FontIcon](/uwp/api/windows.ui.xaml.controls.fonticon) 或 [PathIcon](/uwp/api/windows.ui.xaml.controls.pathicon)，则图标会在命令进入辅助命令区域时，自动缩放为正确大小而不会失真。
+
+有关设置图标的详细信息和示例，请查看 [AppBarButton](/uwp/api/windows.ui.xaml.controls.appbarbutton) 类的文档。
+
+#### <a name="labels"></a>标签
+
 AppBarButton [IsCompact](/uwp/api/windows.ui.xaml.controls.appbarbutton.IsCompact) 属性确定是否显示标签。 在 CommandBar 控件中，命令栏随着命令栏的打开和关闭而自动覆盖按钮的 IsCompact 属性。
 
 要放置应用栏按钮标签，请使用 CommandBar 的 [DefaultLabelPosition](/uwp/api/windows.ui.xaml.controls.commandbar.defaultlabelposition) 属性。
@@ -220,7 +225,7 @@ private void CommandBar_Closing(object sender, object e)
 你可以通过设置 [ClosedDisplayMode](/uwp/api/windows.ui.xaml.controls.appbar.closeddisplaymode) 属性来控制命令栏在关闭状态下的显示方式。 有三种可供选择的关闭显示模式：
 - **精简**：默认模式。 显示内容、不带有标签的主要命令图标和“查看更多”\[•••\] 按钮。
 - **最小**：仅显示充当“查看更多”\[•••\] 按钮的细栏。 用户可以按栏上的任意位置来将其打开。
-- **隐藏**：命令栏在关闭时不显示。 这对于显示带有内联命令栏的上下文命令非常有用。 在此情况下，你必须通过设置 **IsOpen** 属性或将 ClosedDisplayMode 更改为**最小**或**精简**来以编程方式打开命令栏。
+- **隐藏**：命令栏在关闭时不显示。 这对于显示带有内联命令栏的上下文命令非常有用。 在此情况下，你必须通过设置 **IsOpen** 属性或将 ClosedDisplayMode 更改为 **最小** 或 **精简** 来以编程方式打开命令栏。
 
 此处，命令栏用于为 [RichEditBox](/uwp/api/Windows.UI.Xaml.Controls.RichEditBox) 承载简单格式化命令。 当编辑框没有焦点时，格式化命令可能令人分心，因此隐藏它们。 当使用编辑框时，命令栏的 ClosedDisplayMode 更改为精简，以便使格式化命令可见。
 

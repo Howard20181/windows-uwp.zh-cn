@@ -5,12 +5,12 @@ ms.date: 04/18/2019
 ms.topic: article
 keywords: windows 10, uwp, 标准, c++, cpp, winrt, 投影
 ms.localizationpriority: medium
-ms.openlocfilehash: 7812eca3263e266820f3624f88aad41b2d6e6ef5
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: 21b7aebe0ad270ab8f722e2cea9d6ac5202381c5
+ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629375"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107466427"
 ---
 # <a name="cwinrt"></a>C++/WinRT
 
@@ -54,7 +54,7 @@ C++ 编程语言适用于企业 *和* 独立软件供应商 (ISV) 行业中重�
 | [照片编辑器 C++/WinRT 示例应用程序](./photo-editor-sample.md) | 照片编辑器是一个 UWP 示例应用程序，其通过 C++/WinRT 语言投影展示开发。 此示例应用程序允许你从 **图片** 库检索照片，然后使用分类的照片效果编辑选择的图像。 | 
 | [字符串处理](./strings.md) | 利用 C++/WinRT，你可以使用标准 C++ 宽字符串类型来调用 Windows 运行时 API，也可以使用 [**winrt::hstring**](/uwp/cpp-ref-for-winrt/hstring) 类型。 |
 | [标准 C++ 数据类型和 C++/WinRT](./std-cpp-data-types.md) | 利用 C++/WinRT，你可以使用标准 C++ 数据类型调用 Windows 运行时 API。 |
-| [将标量值装箱到 IInspectable 和从 IInspectable 取消标量值装箱](./boxing.md) | 标量值需要先封装到引用类对象内，然后再传递到需要 **IInspectable** 的函数。 该封装过程称为对值进行 *装箱*。 |
+| [将值装箱到 IInspectable 和对其取消装箱](./boxing.md) | 标量或数组值需要先封装到引用类对象内，然后再传递到需要 IInspectable 的函数。 该封装过程称为对值进行 *装箱*。 |
 | [通过 C++/WinRT 使用 API](./consume-apis.md) | 本主题介绍了如何使用 C++/WinRT API，无论它们是由 Windows、第三方组件供应商还是由你自己实现的。 |
 | [使用 C++/WinRT 创作 API](./author-apis.md) | 本主题展示了如何直接或间接使用 **winrt::implements** 基结构来创作 C++/WinRT API。 |
 | [C++/WinRT 的错误处理](./error-handling.md) | 本主题讨论了处理使用 C++/WinRT 编程时出现的错误的策略。 |

@@ -10,12 +10,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 36a5489ab4fa278163fd5fad53be4d28156d4cf4
-ms.sourcegitcommit: 6661f4d564d45ba10e5253864ac01e43b743c560
+ms.openlocfilehash: 63ea04040d550bced414e9591dbf3ffd44de8da2
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104804453"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219084"
 ---
 # <a name="navigation-design-basics-for-windows-apps"></a>Windows 应用的导航设计基础知识
 
@@ -154,7 +154,7 @@ ms.locfileid: "104804453"
 
 如果你的导航结构具有多个级别，我们建议使对等导航元素仅链接到其当前子树内的对等方。 请考虑以下图示，该图显示了具有两个级别的导航结构：
 
-- 在级别 1，对等导航元素应该使用户可以访问页面 A、B、C 和 D。
+- 在级别 1，对等导航元素应提供对页面 A、B 和 C 的访问权限。
 - 在级别 2 上，A2 页面的对等导航元素应该仅链接到其他 A2 页面。 它们不应链接到 C 子树中的级别 2 页面。
     :::column-end:::
 :::row-end:::

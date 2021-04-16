@@ -5,12 +5,12 @@ ms.date: 04/13/2020
 ms.topic: article
 keywords: windows 10, uwp, 标准, c++, cpp, winrt, 投影, 端口, 迁移, C#, 示例, 剪贴板, 案例, 研究
 ms.localizationpriority: medium
-ms.openlocfilehash: f862dd01e91d99e19fb6996921dbc20a33d714da
-ms.sourcegitcommit: 539b428bcf3d72c6bda211893df51f2a27ac5206
+ms.openlocfilehash: cef005e00302efe850e19fff27318495efb275e9
+ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102629365"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107466437"
 ---
 # <a name="porting-the-clipboard-sample-to-cwinrt-from-cmdasha-case-study"></a>将 Clipboard 示例从 C# 移植到 C++/WinRT&mdash;案例研究
 
@@ -456,7 +456,7 @@ public partial class MainPage : Page
 - 运行时类或
 - [IInspectable](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)。
 
-对于 IInspectable 情况，如果元素本身不是运行时类，则这些元素的类型需为可以装箱和取消装箱，并来自 [IInspectable](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) 的类型 。 这意味着它们必须是 Windows 运行时类型（请参阅[将标量值装箱到 IInspectable 和对其取消装箱](./boxing.md)）。
+对于 IInspectable 情况，如果元素本身不是运行时类，则这些元素的类型需为可以装箱和取消装箱，并来自 [IInspectable](/windows/desktop/api/inspectable/nn-inspectable-iinspectable) 的类型 。 这意味着它们必须是 Windows 运行时类型（请参阅[将值装箱到 IInspectable 和对其取消装箱](./boxing.md)）。
 
 对于此案例研究，我们不会将 Scenario 设置为运行时类。 但这仍是一个合理的选择。 在你自己的移植过程中，有时必须使用运行时类。 例如，如果需要使元素类型为“可观察”（请参阅 [XAML 控件；绑定到 C++/WinRT 属性](./binding-property.md)），或者，如果元素出于任何其他原因而需要使用方法，则该元素不仅仅是一组数据成员。
 
@@ -1099,7 +1099,7 @@ void MainPage::Footer_Click(Windows::Foundation::IInspectable const& sender, Win
 }
 ```
 
-与往常一样，我们将事件处理程序设置为 `public`。 对 sender 对象使用 [as](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) 函数以将其转换为 HyperlinkButton。 在 C++/WinRT 中，Tag 属性为 [IInspectable](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)（等效于 [Object](/dotnet/api/system.object)）  。 但 IInspectable 上没有 Tostring 。 我们必须将 IInspectable 取消装箱为标量值（在本例中为字符串）。 同样，有关装箱和取消装箱的详细信息，请参阅[将标量值装箱和取消装箱到 IInspectable](./boxing.md)。
+与往常一样，我们将事件处理程序设置为 `public`。 对 sender 对象使用 [as](/uwp/cpp-ref-for-winrt/windows-foundation-iunknown#iunknownas-function) 函数以将其转换为 HyperlinkButton。 在 C++/WinRT 中，Tag 属性为 [IInspectable](/windows/desktop/api/inspectable/nn-inspectable-iinspectable)（等效于 [Object](/dotnet/api/system.object)）  。 但 IInspectable 上没有 Tostring 。 我们必须将 IInspectable 取消装箱为标量值（在本例中为字符串）。 同样，有关装箱和取消装箱的详细信息，请参阅[将值装箱到 IInspectable 和对其取消装箱](./boxing.md)。
 
 最后两行重复我们之前看到过的移植模式，它们几乎与 C# 版本相对应。
 

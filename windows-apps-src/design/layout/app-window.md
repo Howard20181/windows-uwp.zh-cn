@@ -5,12 +5,12 @@ ms.date: 07/19/2019
 ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
-ms.openlocfilehash: a3f8644612954c4693ad28d3c1b41870855b37ca
-ms.sourcegitcommit: a3bbd3dd13be5d2f8a2793717adf4276840ee17d
+ms.openlocfilehash: 903fe20cef1e3ccaa5db4e1cffc6b6583a878376
+ms.sourcegitcommit: f7c7a2ae6367e114a8b9d438963082440cd24043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93034880"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107315090"
 ---
 # <a name="show-multiple-views-with-appwindow"></a>使用 AppWindow 显示多个视图
 
@@ -28,13 +28,13 @@ ms.locfileid: "93034880"
 
 ![具有单个窗口的示例应用](images/hello-app-window-single.png)
   
-> 具有单个窗口的示例应用 
+> 具有单个窗口的示例应用
 
 ![具有取消停靠颜色选取器和辅助窗口的示例](images/hello-app-window-multi.png)
 
-> 具有取消停靠颜色选取器和辅助窗口的示例 
+> 具有取消停靠颜色选取器和辅助窗口的示例
 
-> **重要的 API** ： [Windows.UI.WindowManagement 命名空间](/uwp/api/windows.ui.windowmanagement)、 [AppWindow 类](/uwp/api/windows.ui.windowmanagement.appwindow)
+> **重要 API**：[Windows.UI.WindowManagement 命名空间](/uwp/api/windows.ui.windowmanagement)、[AppWindow 类](/uwp/api/windows.ui.windowmanagement.appwindow)
 
 ## <a name="api-overview"></a>API 概述
 
@@ -122,6 +122,9 @@ appWindow.Closed += delegate
     appWindow = null;
 };
 ```
+
+> [!TIP]
+> 应将 `Closed` 事件处理程序中的代码量尽量保持在最小值，以避免出现意外问题。
 
 ## <a name="track-instances-of-appwindow"></a>跟踪 AppWindow 的实例
 
@@ -296,7 +299,7 @@ public sealed partial class AppWindowPage : Page
 colorPickerAppWindow.RequestSize(new Size(300, 428));
 ```
 
-用于管理窗口位置的方法名为 RequestMove*：  [RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、[RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、[RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、[RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
+用于管理窗口放置的方法被称为 RequestMove*：[RequestMoveAdjacentToCurrentView](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttocurrentview)、[RequestMoveAdjacentToWindow](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoveadjacenttowindow)、[RequestMoveRelativeToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmoverelativetodisplayregion)、[RequestMoveToDisplayRegion](/uwp/api/windows.ui.windowmanagement.appwindow.requestmovetodisplayregion)。
 
 在此示例中，此代码将窗口移到从中生成了该窗口的主视图旁边。
 
@@ -427,7 +430,7 @@ colorPickerContainer.Children.Remove(colorPicker);
 colorPickerContainer.Visibility = Visibility.Collapsed;
 ```
 
-然后，可将颜色选取器添加到新的 XAML 树中。 在此处，先创建充当 ColorPicker 的父容器的 [Grid](/uwp/api/windows.ui.xaml.controls.grid)，并将 ColorPicker 添加为 Grid 的子级。 （这样，以后就可以轻松从此 XAML 树中删除 ColorPicker。）然后，在新窗口中将 Grid 设置为 XAML 树的根。
+然后，可将颜色选取器添加到新的 XAML 树中。 在此处，先创建充当 ColorPicker 的父容器的 [Grid](/uwp/api/windows.ui.xaml.controls.grid)，并将 ColorPicker 添加为 Grid 的子级。 （这样，以后就可轻松从此 XAML 树中删除 ColorPicker。）然后，在新窗口中将 Grid 设置为 XAML 树的根。
 
 ```csharp
 Grid appWindowRootGrid = new Grid();
@@ -499,7 +502,7 @@ private async void DetachColorPickerButton_Click(object sender, RoutedEventArgs 
 
 默认情况下，内容对话框相对于根 [ApplicationView](/uwp/api/windows.ui.viewmanagement.applicationview) 按模式显示。 在 [AppWindow](/uwp/api/windows.ui.windowmanagement.appwindow) 中使用 [ContentDialog](/uwp/api/windows.ui.xaml.controls.contentdialog) 时，需要手动将对话框中的 XamlRoot 设置为 XAML 宿主的根。
 
-为此，请将 ContentDialog 的 [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) 属性设置为与 AppWindow 中已包含的某个元素相同的 [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot)。 此处，此代码位于按钮的 [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) 事件处理程序中，因此你可以使用 sender（单击的按钮）来获取 XamlRoot。 
+为此，请将 ContentDialog 的 [XamlRoot](/uwp/api/windows.ui.xaml.uielement.xamlroot) 属性设置为与 AppWindow 中已包含的某个元素相同的 [XamlRoot](/uwp/api/windows.ui.xaml.xamlroot)。 此处，此代码位于按钮的 [Click](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.click) 事件处理程序中，因此你可以使用 sender（单击的按钮）来获取 XamlRoot。
 
 ```csharp
 if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 8))
@@ -611,7 +614,7 @@ public sealed partial class MainPage : Page
 }
 ```
 
-## <a name="complete-code"></a>完成代码
+## <a name="complete-code"></a>完整代码
 
 ### <a name="mainpagexaml"></a>MainPage.xaml
 

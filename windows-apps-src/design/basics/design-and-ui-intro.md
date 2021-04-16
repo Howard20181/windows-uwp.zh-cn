@@ -7,12 +7,12 @@ ms.topic: article
 keywords: windows 10, uwp
 ms.localizationpriority: medium
 ms.custom: RS5
-ms.openlocfilehash: 1f6474170967986bfee555eb07d7ea41601e9e48
-ms.sourcegitcommit: aaa72ddeb01b074266f4cd51740eec8d1905d62d
+ms.openlocfilehash: 57612b41cc1ee31d2e7fd7c8e91e7b7772dab38d
+ms.sourcegitcommit: 77af97719a439f5e73a6109b42fd3110bcb2843b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94339755"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107219030"
 ---
 # <a name="introduction-to-windows-app-design"></a>Windows 应用设计简介
 
@@ -47,9 +47,9 @@ UWP 可以发挥促进作用，即通过自动调整 UI 元素的大小，以使
 
 :::row:::
     :::column span:::
-在 UWP 应用中，UI 元素的大小、边距和位置应始终为 **4 epx 的倍数** 。
+在 UWP 应用中，UI 元素的大小、边距和位置应始终为 **4 epx 的倍数**。
 
-UWP 可以跨一系列设备进行缩放，缩放比例为 100%、125%、150%、175%、200%、225%、250%、300%、350%、400%。 基础单位为 4，因为这是可以通过非整数进行缩放的唯一整数（例如，4*1.5 = 6）。 使用 4 的倍数可以将所有 UI 元素与整个像素匹配，并可确保 UI 元素具有清晰的锐边。 （请注意，文本不会有此要求；文本的大小和位置可以是任意值。）
+UWP 可以跨一系列设备进行缩放，缩放比例为 100%、125%、150%、175%、200%、225%、250%、300%、350%、400%。 基础单位是 4，因为它可以整数形式缩放到这些比例（例如 4 x 125% = 5，4 x 150% = 6）。 使用 4 的倍数可以将所有 UI 元素与整个像素匹配，并可确保 UI 元素具有清晰的锐边。 （请注意，文本不会有此要求；文本的大小和位置可以是任意值。）
     :::column-end:::
     :::column:::
 ![网格](images/4epx.svg)

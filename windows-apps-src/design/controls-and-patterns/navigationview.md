@@ -14,12 +14,12 @@ ms.custom: RS5
 dev_langs:
 - csharp
 - cppwinrt
-ms.openlocfilehash: b5e80a1c8f77fe10748eb671476b4cd81d3c4e37
-ms.sourcegitcommit: 23f3d452806f40752d7c2ebd07b7b056ac5d8934
+ms.openlocfilehash: 959fc9f77c94ee05bf4191bd3ce01049a8163bde
+ms.sourcegitcommit: b89d3bc42713fbe4c0ada99d6f514f1304821221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107031526"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107466447"
 ---
 # <a name="navigationview"></a>NavigationView
 
@@ -1021,7 +1021,7 @@ namespace winrt::NavigationViewCppWinRT::implementation
 
 上面所示的 C# 和 C++ /WinRT 代码经过专门设计，让你能够对这两个版本使用相同的 XAML 标记。 但是，你可能更希望通过另一种方法来实现此部分中所述的 C++/WinRT 版本。
 
-下面是 **NavView_ItemInvoked** 处理程序的替代版本。 此版本的处理程序中的技术涉及首先（在 [NavigationViewItem](/uwp/api/windows.ui.xaml.controls.navigationviewitem) 的标记中）存储要导航到的页面的完整类型名称。 在处理程序中，对值取消装箱，将它转换 [Windows::UI::Xaml::Interop::TypeName](/uwp/api/windows.ui.xaml.interop.typename) 对象，并使用该对象导航到目标页。 不需要在上面的示例中看到的名为 `_pages` 的映射变量；你将能够创建单元测试，从而确认标记中的值是否属于有效类型。 另请参阅[通过 C++/WinRT 将标量值装箱到 IInspectable 和从 IInspectable 取消标量值装箱](../../cpp-and-winrt-apis/boxing.md)。
+下面是 **NavView_ItemInvoked** 处理程序的替代版本。 此版本的处理程序中的技术涉及首先（在 [NavigationViewItem](/uwp/api/windows.ui.xaml.controls.navigationviewitem) 的标记中）存储要导航到的页面的完整类型名称。 在处理程序中，对值取消装箱，将它转换 [Windows::UI::Xaml::Interop::TypeName](/uwp/api/windows.ui.xaml.interop.typename) 对象，并使用该对象导航到目标页。 不需要在上面的示例中看到的名为 `_pages` 的映射变量；你将能够创建单元测试，从而确认标记中的值是否属于有效类型。 另请参阅[通过 C++/WinRT 将值装箱到 IInspectable 和对其取消装箱](../../cpp-and-winrt-apis/boxing.md)。
 
 ```cppwinrt
 void MainPage::NavView_ItemInvoked(
