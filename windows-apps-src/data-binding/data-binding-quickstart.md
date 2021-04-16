@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 - cppwinrt
 - cppcx
-ms.openlocfilehash: 3f1aeb24a50d0e1f4d1e7c1ee702ea078582b4e5
-ms.sourcegitcommit: efa5f793607481dcae24cd1b886886a549e8d6e5
+ms.openlocfilehash: c21ea3baaa5992877d1fc0f695e36dda53f69ce2
+ms.sourcegitcommit: 27787a579e497d097382338654ed371b661cc3b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89412001"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107321708"
 ---
 # <a name="data-binding-overview"></a>数据绑定概述
 
@@ -324,7 +324,7 @@ MainPage::MainPage()
 
 ## <a name="binding-to-a-collection-of-items"></a>绑定到项目集合
 
-一个常见情形是绑定到业务对象的集合。 在 C# 和 Visual Basic 中，通用 [**ObservableCollection&lt;T&gt;** ](/dotnet/api/system.collections.objectmodel.observablecollection-1) 类是数据绑定的一个很好的集合选择，因为它实现了 [**INotifyPropertyChanged**](/dotnet/api/system.componentmodel.inotifypropertychanged) 和 [**INotifyCollectionChanged**](/dotnet/api/system.collections.specialized.inotifycollectionchanged) 接口。 当添加或删除项目或者列表本身的属性更改时，这些接口将向绑定提供更改通知。 如果你希望你的绑定控件使用集合中的对象属性更改进行更新，则业务对象也应该实现 **INotifyPropertyChanged**。 有关详细信息，请参阅[深入了解数据绑定](data-binding-in-depth.md)。
+一个常见情形是绑定到业务对象的集合。 在 C# 和 Visual Basic 中，通用 [**ObservableCollection&lt;T&gt;**](/dotnet/api/system.collections.objectmodel.observablecollection-1) 类是数据绑定的一个很好的集合选择，因为它实现了 [**INotifyPropertyChanged**](/dotnet/api/system.componentmodel.inotifypropertychanged) 和 [**INotifyCollectionChanged**](/dotnet/api/system.collections.specialized.inotifycollectionchanged) 接口。 当添加或删除项目或者列表本身的属性更改时，这些接口将向绑定提供更改通知。 如果你希望你的绑定控件使用集合中的对象属性更改进行更新，则业务对象也应该实现 **INotifyPropertyChanged**。 有关详细信息，请参阅[深入了解数据绑定](data-binding-in-depth.md)。
 
 如果使用 [C++/WinRT](../cpp-and-winrt-apis/intro-to-using-cpp-with-winrt.md)，则可以在 [XAML 项目控件；绑定到 C++/WinRT 集合](../cpp-and-winrt-apis/binding-collection.md)中了解有关绑定到可观察集合的更多信息。 如果你先阅读该主题，则会更清楚下面显示的 C++/WinRT 代码清单的意图。
 
@@ -617,6 +617,10 @@ public class StringFormatter : Windows.UI.Xaml.Data.IValueConverter
 ```
 
 ```cppwinrt
+// pch.h
+...
+#include <winrt/Windows.Globalization.h>
+
 // StringFormatter.idl
 namespace Quickstart
 {

@@ -11,12 +11,12 @@ pm-contact: predavid
 design-contact: kimsea
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 90f0cd65dac11128f5a66d5dc15a9a2f75a99adc
-ms.sourcegitcommit: f5d7fd9ac1837260ef1bbda9ad54208826c522f2
+ms.openlocfilehash: 4196be2a8eaff179fa8654e844e168b11bf23d7e
+ms.sourcegitcommit: 5dc630ecdc9c852bcad96c172c63d6f8d3a7e696
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/08/2021
-ms.locfileid: "107073024"
+ms.locfileid: "107214014"
 ---
 # <a name="flip-view"></a>翻转视图
 
@@ -147,7 +147,7 @@ stackPanel1.Children.Add(flipView1);
             <Grid>
                 <Image Width="480" Height="270" Stretch="UniformToFill"
                        Source="{Binding Image}"/>
-                <Border Background="#A5000000" Height="80" VerticalAlignment="Bottom">
+                <Border Background="#75000000" Height="80" VerticalAlignment="Bottom">
                     <TextBlock Text="{Binding Name}" 
                                FontFamily="Segoe UI" FontSize="26.667" 
                                Foreground="#CCFFFFFF" Padding="15,20"/>

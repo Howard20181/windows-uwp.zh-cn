@@ -8,12 +8,12 @@ ms.author: drewbat
 author: drewbatgit
 ms.localizationpriority: high
 ms.custom: 19H1
-ms.openlocfilehash: 3caadca2c6aae1ecceed534f9d9597f126310f3d
-ms.sourcegitcommit: bcdec8bda3106cd5588464531e582101d52dcc80
+ms.openlocfilehash: b0616219b1950d476a1b5dd281281399196aad3e
+ms.sourcegitcommit: 4b4ace01ab130f0f9784fa0be0dcce28bdfc422f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102254631"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107265702"
 ---
 # <a name="templated-xaml-controls-for-winui-3-apps-with-c"></a>使用 C# 将 WinUI 3 应用的 XAML 控件模板化
 
@@ -58,7 +58,7 @@ DependencyProperty LabelProperty = DependencyProperty.Register(
     nameof(Label), 
     typeof(string),
     typeof(BgLabelControl), 
-    new PropertyMetadata(default(string)));
+    new PropertyMetadata(default(string), new PropertyChangedCallback(OnLabelChanged)));
 ```
 
 实现依赖项属性只需要这两个步骤，但在此示例中，我们将为 OnLabelChanged 事件添加一个可选处理程序。 每当该属性值更新时，系统都会引发此事件。 在这种情况下，我们将检查新标签文本是否为空字符串，并相应地更新类变量。
@@ -68,17 +68,15 @@ public bool HasLabelValue { get; set; }
 
 private static void OnLabelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 {
+    BgLabelControl labelControl = d as BgLabelControl; //null checks omitted
+    String s = e.NewValue as String; //null checks omitted
+    if (s == String.Empty)
     {
-        BgLabelControl labelControl = d as BgLabelControl; //null checks omitted
-        String s = e.NewValue as String; //null checks omitted
-        if (s == String.Empty)
-        {
-            labelControl.HasLabelValue = false;
-        }
-        else
-        {
-            labelControl.HasLabelValue = true;
-        }
+        labelControl.HasLabelValue = false;
+    }
+    else
+    {
+        labelControl.HasLabelValue = true;
     }
 }
 ```

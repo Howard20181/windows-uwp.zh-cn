@@ -1,20 +1,19 @@
 ---
 title: Microsoft Store 策略更改历史记录
 description: 查看一个表，表中显示了 Microsoft Store 策略更改历史记录并说明了每次更改的新增内容、更新内容和删除内容。
-ms.date: 10/01/2019
+ms.date: 04/15/2021
 ms.topic: article
 keywords: Microsoft Store 策略协议
 ms.localizationpriority: high
 ms.assetid: D451D271-A6CA-4B46-AE99-C2269E8A078C
-ms.openlocfilehash: 7460658e2622fe1a08983a9519e9eda9f5b4b1ac
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 269b665eb9f48dd82629371af09310cdf8b2f3cb
+ms.sourcegitcommit: a54eaafdd00991a20be582732e7eb02541d4525c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89161841"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107521291"
 ---
 # <a name="change-history-for-microsoft-store-policies"></a>Microsoft Store 策略更改历史记录
-
 
 <table>
 <colgroup>
@@ -30,9 +29,17 @@ ms.locfileid: "89161841"
 </tr>
 </thead>
 <tbody>
+<tr class="even">
+<td>2021 年 4 月 15 日</td>
+<td><a href="https://docs.microsoft.com/windows/uwp/publish/store-policies">7.13</a></td>
+<td><p>更新策略 10.1，现包含元数据示例，它包含产品目录并就被视为游戏的产品提供指导。 </p>
+<p>更新策略 10.8.6，现包含适用于电脑游戏订阅产品的特定策略。</p>
+<p>更新策略 10.13，现删除对创意者产品的 XBL 要求；还从 Microsoft Store 策略中删除了 XBL 特定的所有策略，原因是可在 https://aka.ms/xboxlivepolicy 中找到 XBL 要求。</p>
+<p>更新了策略 11.12，以阐明与用户生成的内容相关的策略要求。</p></td>
+</tr>
 <tr class="odd">
 <td>2019 年 10 月 1 日</td>
-<td>7.12</td>
+<td><a href="https://docs.microsoft.com/windows/uwp/publish/store-policy-archive/store-policy-7-12">7.12</a></td>
 <td><p>添加了新策略 10.2.6，以便禁用在设备上挖掘加密货币的应用。</p>
 <p>更新了 10.8.4，从而为提供“虚拟抽奖”或其他随机化虚拟商品的产品添加可能性披露要求。</p>
 <p>更新了 10.8.7 以添加有关定价法规的要求。</p>
@@ -193,7 +200,6 @@ ms.locfileid: "89161841"
 </tr>
 </tbody>
 </table>
-
 
 ### <a name="see-also"></a>另请参阅
 

@@ -8,12 +8,12 @@ ms.topic: article
 keywords: Rust, Windows 10, Microsoft, 了解 Rust, 初学者在 Windows 上使用 Rust 进行开发, 结合使用 Rust 与 VS Code, Rust for Windows
 ms.localizationpriority: medium
 ms.date: 03/04/2021
-ms.openlocfilehash: aa3288d01207b7f51fe0f63ea996c4ea5cbdde48
-ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
+ms.openlocfilehash: 1ba0acf298a3bd492ceac9adccafcac857f67cba
+ms.sourcegitcommit: f7c7a2ae6367e114a8b9d438963082440cd24043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102194138"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107315060"
 ---
 # <a name="rust-for-windows-and-the-windows-crate"></a>Rust for Windows 和 windows crate
 
@@ -44,7 +44,7 @@ Rust for Windows 存储库还有[一些可供遵循的简单示例](https://gith
 
 ## <a name="rust-documentation-for-the-windows-api"></a>Windows API 的 Rust 文档
 
-Rust for Windows 受益于 Rust 开发人员所畅享的完善的工具链。 但是，如果让整个 Windows API 能够被轻松调用是一项艰巨任务，则还可以参阅 [Rust 关于 Windows API 的文档](https://microsoft.github.io/windows-docs-rs/doc/bindings/windows/)。
+Rust for Windows 受益于 Rust 开发人员所畅享的完善的工具链。 但是，如果让整个 Windows API 能够被轻松调用是一项艰巨任务，则还可以参阅 [Rust 关于 Windows API 的文档](https://microsoft.github.io/windows-docs-rs/doc/bindings/Windows/)。
 
 此资源基本上介绍了如何将 Windows API 和类型投影到惯用 Rust 中。 使用它，可以浏览或搜索你需要了解的 API，以及你需要知道如何调用它的 API。
 
