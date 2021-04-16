@@ -761,7 +761,7 @@
           href: ../cpp-and-winrt-apis/strings.md
         - name: 标准 C++ 数据类型
           href: ../cpp-and-winrt-apis/std-cpp-data-types.md
-        - name: 将标量值装箱到 IInspectable 和从 IInspectable 取消标量值装箱
+        - name: 将值装箱到 IInspectable 和对其取消装箱
           href: ../cpp-and-winrt-apis/boxing.md
         - name: 使用 API
           href: ../cpp-and-winrt-apis/consume-apis.md
