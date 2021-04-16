@@ -6,12 +6,12 @@ ms.topic: article
 keywords: windows 10, uwp, 安全性
 ms.assetid: ec9293a1-237d-47b4-bcde-18112586241a
 ms.localizationpriority: medium
-ms.openlocfilehash: 0a67c88eb7eb70308e6dcbbd096289c0617793b1
-ms.sourcegitcommit: 53c00939b20d4b0a294936df3d395adb0c13e231
+ms.openlocfilehash: 229f02769c213b1fab04d3694040eb3271f88649
+ms.sourcegitcommit: 6cd970686d1ea7176b7e6651f349a14551709820
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91933068"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107559384"
 ---
 # <a name="web-account-manager"></a>Web 帐户管理器
 
@@ -24,7 +24,7 @@ ms.locfileid: "91933068"
 
 首先，在 Visual Studio 中创建一个新的空白应用。 
 
-第二，你需要将你的应用与应用商店关联，以便连接到标识提供者。 为此，请右键单击项目 **，选择 "** 将  >  **应用与**应用商店关联"，然后按照向导的说明进行操作。 
+第二，你需要将你的应用与应用商店关联，以便连接到标识提供者。 若要执行此操作，请右键单击项目，选择 "**将**  >  **应用商店关联应用" 和 "应用商店"**，然后按照向导的说明进行操作。 
 
 第三，创建一个非常基本的 UI，由一个简单的 XAML 按钮和两个文本框组成。
 
@@ -133,7 +133,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s,
 
 请注意，我们还向可选 *authority* 参数传递字符串“consumers”。 这是因为 Microsoft 提供了两种不同类型的身份验证，即适用于“消费者”的 Microsoft 帐户 (MSA) 和适用于“组织”的 Azure Active Directory (AAD)。 “consumers”颁发机构指示我们需要 MSA 选项。 如果在开发一款企业应用，请使用“organizations”字符串。
 
-最后，通过创建新的**[WebAccountProviderCommand](/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** （如下所示）将提供程序添加到**AccountsSettingsPane** ： 
+最后，通过创建新的 **[WebAccountProviderCommand](/uwp/api/windows.ui.applicationsettings.webaccountprovidercommand)** （如下所示）将提供程序添加到 **AccountsSettingsPane** ： 
 
 ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s,
@@ -351,7 +351,7 @@ private async Task SignOutAccountAsync(WebAccount account)
 
 ## <a name="add-providers-that-dont-support-webaccountmanager"></a>添加不支持 WebAccountManager 的提供程序
 
-例如，如果你想要将身份验证从服务集成到你的应用，但该服务不支持 WebAccountManager-Google + 或 Twitter，则你仍可以将该提供程序手动添加到 **AccountsSettingsPane**中。 若要执行此操作，请新建 WebAccountProvider 对象，并提供自己的名称和 .png 图标，然后将其添加到 WebAccountProviderCommands 列表。 下面是一些存根代码： 
+例如，如果你想要将身份验证从服务集成到你的应用，但该服务不支持 WebAccountManager-Google + 或 Twitter，则你仍可以将该提供程序手动添加到 **AccountsSettingsPane** 中。 若要执行此操作，请新建 WebAccountProvider 对象，并提供自己的名称和 .png 图标，然后将其添加到 WebAccountProviderCommands 列表。 下面是一些存根代码： 
 
  ```csharp
 private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCommandsRequestedEventArgs e)
@@ -420,7 +420,7 @@ private async void BuildPaneAsync(AccountsSettingsPane s, AccountsSettingsPaneCo
 
 理论上，你可以对任何内容使用设置命令。 但是，我们建议将它们的使用范围限制在直观的与帐户相关的情况，如上文所述。 
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 [Windows.Security.Authentication.Web.Core 命名空间](/uwp/api/windows.security.authentication.web.core)
 

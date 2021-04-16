@@ -5,12 +5,12 @@ ms.date: 05/22/2020
 ms.topic: article
 keywords: windows 10 s, 始终连接, ARM, ARM64, x86 模拟
 ms.localizationpriority: medium
-ms.openlocfilehash: abb6e891d1f23ae94d61732d70af6bc3babcb07f
-ms.sourcegitcommit: 85b9a5fc16f4486bc23b4ec8f4fae5ab6211a066
+ms.openlocfilehash: ff763ea543e8dd6592e1f8502438a684ec38be16
+ms.sourcegitcommit: 6cd970686d1ea7176b7e6651f349a14551709820
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102192929"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107559368"
 ---
 # <a name="windows-10-on-arm"></a>基于 ARM 的 Windows 10
 起初，Windows 10（与 Windows 10 移动版不同）只能在采用 x86 和 x64 处理器的电脑上运行。 现在，Windows 10 桌面可以在使用秋季创建者更新或更新版本的 ARM64 处理器的计算机上运行。 ARM CPU 体系结构的省电特性使这些电脑拥有全天的电池使用时间，并且支持移动数据网络。 这些电脑将提供出色的应用程序兼容性，让你在不进行任何修改的情况下运行现有的 x86 win32 应用程序。 有关详细信息或演示，请查看 "始终连接的 PC" 的第 [9 频道视频](https://channel9.msdn.com/Events/Build/2017/P4171)。
@@ -33,7 +33,10 @@ ARM 上的 Windows 10 从 Microsoft Store 运行所有 x86、ARM32 和 ARM64 [UW
 > ARM 上的 Windows 10 支持从存储在 ARM64 设备上的 x86、ARM32 和 ARM64 UWP 应用。 当用户在 ARM64 设备上下载 UWP 应用时，操作系统将自动安装可用应用的最佳版本。 如果向应用商店提交应用的 x86、ARM32 和 ARM64 版本，操作系统会自动安装 ARM64 版本的应用。 如果只提交应用的 x86 和 ARM32 版本，操作系统将安装 ARM32 版本。 如果只提交 x86 版本的应用，操作系统会安装该版本并在仿真下运行它。 有关体系结构的详细信息，请参阅[应用包体系结构](/windows/msix/package/device-architecture)。
 
 ### <a name="win32-apps"></a>Win32 应用
-除了 UWP 应用之外，ARM 上的 Windows 10 还可以运行未修改的 x86 Win32 应用，并具有良好的性能和无缝的用户体验，就像任何 PC 一样。 这些 x86 Win32 应用无需重新编译 ARM，甚至不能意识到它们是在 ARM 处理器上运行的。 请注意，不支持64位 x64 Win32 应用程序，但绝大多数应用程序都有可用的 x86 版本。  如果选择应用程序体系结构，只需选择32位 x86 版本即可在 ARM PC 上的 Windows 10 上运行该应用程序。
+除了 UWP 应用之外，ARM 上的 Windows 10 还可以运行未修改的 x86 Win32 应用，并具有良好的性能和无缝的用户体验，就像任何 PC 一样。 这些 x86 Win32 应用无需重新编译 ARM，甚至不能意识到它们是在 ARM 处理器上运行的。
+
+### <a name="x86-64-apps"></a>x86-64 应用
+在版本21277中添加了对 x86 64 应用程序的初始支持，当前正在进一步开发。 如果某个应用的 x64 Win32 版本不起作用，则大多数应用还提供 x86 版本。 如果选择应用程序体系结构，只需选择32位 x86 版本即可在 ARM PC 上的 Windows 10 上运行应用的32位版本。
 
 ## <a name="downloads"></a>下载
 
