@@ -7,12 +7,12 @@ keywords: windows win32, 桌面开发, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: 91daca9b36eca88adbf13ff6be740852f76a1386
-ms.sourcegitcommit: 0be372d792b58a260634b4e008e180f0447a46ff
+ms.openlocfilehash: 6674b18c0a042b857b14972c55e7e57f01acc03d
+ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549663"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107574612"
 ---
 # <a name="build-desktop-windows-apps-with-project-reunion-05"></a>使用 Project Reunion 0.5 构建桌面 Windows 应用
 
@@ -76,12 +76,7 @@ Project Reunion API 适用于 Windows 10 版本 1809 以及 Windows 10 的所有
 - 支持将 Project Reunion 0.5 NuGet 包用于生产环境中的桌面（C#/.NET 5 和 C++/WinRT）项目。 它可用作 UWP 项目的开发人员预览版，不支持用于生产环境中的 UWP 项目。
 - Project Reunion 0.5 NuGet 包（名为 Microsoft.ProjectReunion）包含其他子包（包括 Microsoft.ProjectReunion.Foundation 和 Microsoft.ProjectReunion.WinUI）这些子包包含 WinUI、MRT Core 和 DWriteCore 等组件的实现。   不能单独安装这些子包以便仅在项目中引用某些组件。 必须安装 Microsoft.ProjectReunion 包，它包含所有组件。  
 - 如果将 Project Reunion 0.5 NuGet 包安装到现有项目，则只能在项目中使用属于 Project Reunion 的非 WinUI 3 组件。 要使用 WinUI 3，必须使用上一节中介绍的其中一个 WinUI 3 项目模板创建一个新项目。
-- WPF 项目目前不支持安装 Project Reunion 0.5 NuGet 包。
-- 在以 AnyCPU 为目标的项目中，安装 Project Reunion 0.5 NuGet 包将导致生成失败。 若要修复此错误，请将以下 ProjectReunionCopyXamlToolingLibs 元素添加到项目文件中的 PropertyGroup 元素。 
 
-    ```xml
-    <ProjectReunionCopyXamlToolingLibs>false</ProjectReunionCopyXamlToolingLibs>
-    ```
 
 #### <a name="asta-to-sta-threading-model"></a>ASTA 到 STA 线程模型
 
