@@ -3,12 +3,12 @@ title: WinUI 3 Project Reunion 0.5（2021 年 3 月）
 description: WinUI 3 Project Reunion 0.5 的概述。
 ms.date: 03/19/2021
 ms.topic: article
-ms.openlocfilehash: 685fd1525088bd662435b95f727c1e9fa5de5d81
-ms.sourcegitcommit: 0be372d792b58a260634b4e008e180f0447a46ff
+ms.openlocfilehash: 8e6efbe97e37d7184555b96099952f6b32ea9cb2
+ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549683"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107574632"
 ---
 # <a name="windows-ui-library-3---project-reunion-05-march-2021"></a>Windows UI 库 3 - Project Reunion 0.5（2021 年 3 月）
 
@@ -31,7 +31,7 @@ WinUI 3 Project Reunion 0.5 是 WinUI 3 的第一个稳定的支持版本，可�
 > [!NOTE]
 > 若要使用 WinUI 3 工具（如“实时可视化树”、“热重载”和“实时属性资源管理器”），必须按照[此处说明](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)所述，启用 Visual Studio Preview 功能中的 WinUI 3 工具。
 
-设置开发环境后，请参阅 [Visual Studio 中的 WinUI 3 项目模板](winui-project-templates-in-visual-studio.md)，熟悉可用的 Visual Studio 项目和项模板。 
+设置开发环境后，请参阅 [Visual Studio 中的 WinUI 3 项目模板](winui-project-templates-in-visual-studio.md)，熟悉可用的 Visual Studio 项目和项模板。
 
 有关开始构建 WinUI 3 应用的详细信息，请参阅以下文章：
 
@@ -60,111 +60,9 @@ WinUI 3 API 参考文档请参阅此处：[WinUI 3 API 参考](/windows/winui/ap
 | 16.9  | 是，但没有热重载、实时可视化树或实时属性资源管理器功能  |
 | 16.10 预览版  | 是，具有所有 WinUI 3 工具   |
 
-## <a name="updating-your-existing-winui-3-app"></a>更新现有的 WinUI 3 应用
+## <a name="update-your-existing-winui-3-app"></a>更新现有 WinUI 3 应用
 
-可更新使用预览版 WinUI 3 的应用，以使用 WinUI 3 的这个新的支持版本。 请根据你的应用类型参阅以下说明。
-
-> [!NOTE] 
-> 由于每个应用的单独场景的唯一性，这些说明可能会有问题。 请谨慎地遵循这些说明进行操作，如果发现问题，请[在 GitHub 存储库上报告错误](https://github.com/microsoft/microsoft-ui-xaml/issues/new/choose)。 
-
-### <a name="updating-a-winui-3-preview-4-app-to-use-winui-3---project-reunion-05"></a>更新 WinUI 3 预览版 4 应用以使用 WinUI 3 Project Reunion 0.5
-
-在开始之前，确保已安装了所有 WinUI 3 Project Reunion 0.5 必备组件，包括 Project Reunion VSIX 和 NuGet 包。 请参阅[此处的安装说明](../../project-reunion/get-started-with-project-reunion.md#set-up-your-development-environment)。
-
-首先，请务必逐个执行下列步骤： 
-- 在 .wapproj 文件中，如果 TargetPlatformMinVersion 低于 10.0.17763.0，请将其更改为 10.0.17763.0 
-
-- 如果应用使用 `Application.Suspending` 事件，请确保删除或更改该行，因为 `Application.Suspending` 不再针对桌面应用进行调用。 有关详细信息，请参阅 [API 参考文档](https://docs.microsoft.com/windows/winui/api/microsoft.ui.xaml.application.suspending?view=winui-3.0-preview&preserve-view=true)。
-
-  请注意，C++ 和 C# 应用的默认项目模板包含以下行。 如果代码中仍存在这些行，请确保删除这些行：
-
-    C#：`this.Suspending += OnSuspending;`
-  
-    C++：`Suspending({ this, &App::OnSuspending });` 
-
-现在，对项目进行一些更改： 
-  
-1. 在 Visual Studio 中，转到“工具” -> “NuGet 包管理器” -> “包管理器控制台”  。
-2. 键入 ```uninstall-package Microsoft.WinUI -ProjectName {yourProject}```
-3. 键入 ```install-package Microsoft.ProjectReunion -Version 0.5.0 -ProjectName {yourProjectName}```
-4. 在应用程序 (package).wapproj 中进行以下更改：
-
-    添加以下部分：
-
-    ```xml
-    <ItemGroup>
-      <PackageReference Include="Microsoft.ProjectReunion" Version="[0.5.0]">
-        <IncludeAssets>build</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
-    ```
-
-    然后，删除以下行：
-
-    ```xml
-    <AppxTargetsLocation Condition="'$(AppxTargetsLocation)'==''">$(MSBuildThisFileDirectory)build\</AppxTargetsLocation>
-    ```
-
-    ```xml
-    <Import Project="$(AppxTargetsLocation)Microsoft.WinUI.AppX.targets" />
-    ```
-
-5. 在项目的 {YourProject}(package)/build/ 文件夹下，删除现有的 `Microsoft.WinUI.AppX.targets` 文件。
-
-### <a name="updating-a-winui-3---project-reunion-05-preview-app-to-use-winui-3---project-reunion-05-stable"></a>更新 WinUI 3 Project Reunion 0.5 预览版应用以使用 WinUI 3 Project Reunion 0.5（稳定版）
-
-在开始之前，确保已安装了所有 WinUI 3 Project Reunion 0.5 必备组件，包括 Project Reunion VSIX 和 NuGet 包。 请参阅[此处的安装说明](../../project-reunion/get-started-with-project-reunion.md#set-up-your-development-environment)。
-
-首先，请务必逐个执行下列步骤：
-- 在 .wapproj 文件中，如果 TargetPlatformMinVersion 低于 10.0.17763.0，请将其更改为 10.0.17763.0 
-
-- 如果应用使用 `Application.Suspending` 事件，请确保删除或更改该行，因为 `Application.Suspending` 不再针对桌面应用进行调用。 有关详细信息，请参阅 [API 参考文档](https://docs.microsoft.com/windows/winui/api/microsoft.ui.xaml.application.suspending?view=winui-3.0-preview&preserve-view=true)。
-
-  请注意，C++ 和 C# 应用的默认项目模板包含以下行。 如果代码中仍存在这些行，请确保删除这些行：
-
-    C#：`this.Suspending += OnSuspending;`
-  
-    C++：`Suspending({ this, &App::OnSuspending });` 
-
-现在，对项目进行一些更改： 
-
-1. 在 Visual Studio 中，转到“工具” -> “NuGet 包管理器” -> “包管理器控制台”  。
-2. 键入 ```uninstall-package Microsoft.ProjectReunion -ProjectName {yourProject}```
-3. 键入 ```uninstall-package Microsoft.ProjectReunion.Foundation -ProjectName {yourProject}```
-4. 键入 ```uninstall-package Microsoft.ProjectReunion.WinUI -ProjectName {yourProject}```
-5. 键入 ```install-package Microsoft.ProjectReunion -Version 0.5.0 -ProjectName {yourProjectName}```
-6. 在应用程序 (package).wapproj 中进行以下更改：
-  
-    添加以下部分：
-
-    ```xml
-      <ItemGroup>
-        <PackageReference Include="Microsoft.ProjectReunion" Version="[0.5.0]">
-          <IncludeAssets>build</IncludeAssets>
-        </PackageReference>
-      </ItemGroup>
-    ```
-    然后，删除以下行：
-    ```xml
-      <AppxTargetsLocation Condition="'$(AppxTargetsLocation)'==''">$(MSBuildThisFileDirectory)build\</AppxTargetsLocation>
-    ```
-    和
-
-    ```xml
-      <Import Project="$(Microsoft_ProjectReunion_AppXReference_props)" />
-      <Import Project="$(Microsoft_WinUI_AppX_targets)" />
-    ```
-    以及此项组：
-    ```xml
-    <ItemGroup>
-        <PackageReference Include="Microsoft.ProjectReunion" Version="[0.5.0-prerelease]" GeneratePathProperty="true">
-          <ExcludeAssets>all</ExcludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="[0.5.0-prerelease]" GeneratePathProperty="true">
-          <ExcludeAssets>all</ExcludeAssets>
-        </PackageReference>
-      </ItemGroup>
-      ```
+如果使用早期版本的 WinUI 3 创建了应用，可更新项目以使用最新版本的 WinUI 3 - Project Reunion 0.5。 有关说明，请参阅[将现有项目更新到 Project Reunion 的最新版本](../../project-reunion/update-existing-projects-to-the-latest-release.md)。
 
 ## <a name="major-changes-introduced-in-this-release"></a>此版本中引入的重大更改
 
@@ -267,18 +165,23 @@ WinUI 3 预览版 4 以及后续标准版中的新增功能 [CoreWindow](/uwp/ap
 
 ### <a name="known-issues"></a>已知问题
 
-- 按 Alt+F4 不会关闭桌面应用窗口。
-
 - 桌面应用中不再支持 [UISettings.ColorValuesChanged 事件](/uwp/api/windows.ui.viewmanagement.uisettings.colorvalueschanged)和 [AccessibilitySettings.HighContrastChanged 事件](/uwp/api/windows.ui.viewmanagement.accessibilitysettings.highcontrastchanged)。 如果使用它来检测 Windows 主题中的更改，可能会导致问题。 
 
 - 以前，如果要获取 CompositionCapabilities 实例，需要调用 [CompositionCapabilites.GetForCurrentView()](/uwp/api/windows.ui.composition.compositioncapabilities.getforcurrentview)。 但是，从此调用返回的功能不依赖于视图。 为了解决并反映此问题，我们已在此版本中删除 GetForCurrentView() 静态，因此现在可以直接创建 [CompositionCapabilties](/uwp/api/windows.ui.composition.compositioncapabilities) 对象。
 
-- Acrylic 画笔呈透明显示。 
+- 由于 .NET SDK 和 winrt.runtime.dll 的版本不匹配，可能会出现生成错误。 可以尝试下面的解决方法：
 
-- 由于某个 C#/WinRT 问题，订阅某些框架元素事件和页面导航可能会导致内存泄漏。 
+    - 将 .NET SDK 显式设置为最新版本。 为此，请将以下项组添加到 .csproj 文件中，让人年后保存项目：
 
-- 在此版本中，你可能还会遇到其他 C#/WinRT 问题，例如 GC/ObjectDisposedExceptions、封送处理值和可以为 null 的类型（TimeSpan、IReference<Vector3> 等）。 
-  - 这些问题将在即将于 4 月中旬推出的 .NET 5 SDK 服务版本中得到修复。 可通过以下方法获得此更新：通过显式下载并安装它（例如，在生成管道中）或通过 Visual Studio 更新隐式下载并安装它。
+      ```xml
+      <ItemGroup>            
+          <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.18362.16" />
+          <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.18362.16" />
+      </ItemGroup>
+      ```
+
+    请注意，5 月推出 .NET 5.0.6 后可删除这些行。 
+
 
 ## <a name="winui-3-controls-gallery"></a>WinUI 3 控件库
 
