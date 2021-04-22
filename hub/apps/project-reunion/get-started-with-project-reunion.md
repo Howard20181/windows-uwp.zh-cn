@@ -7,12 +7,12 @@ keywords: windows win32, 桌面开发, project reunion
 ms.author: mcleans
 author: mcleanbyron
 ms.localizationpriority: medium
-ms.openlocfilehash: af934c2b1f4eeaa04693c3587915421a6d1453d1
-ms.sourcegitcommit: df14e7768acdb243190e3418db5afa5d65c5ff88
+ms.openlocfilehash: e3a5c891bb6bbeafa59baf933a4d8886e8430a16
+ms.sourcegitcommit: 2772d98e0c8f039e7356f03fd09054dca1022c3a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107574642"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107838689"
 ---
 # <a name="get-started-with-project-reunion"></a>Project Reunion 入门
 
@@ -65,17 +65,6 @@ ms.locfileid: "107574642"
 
 6. 若要在 Visual Studio 2019 16.10 Preview 中使用 WinUI 3 工具（如 "实时可视化树"、"热重载" 和 "实时属性资源管理器"），必须使用 Visual Studio 预览功能启用 WinUI 3 工具。 有关说明，请参阅 [如何在 VS 16.9 预览版4中为 WinUI 3 启用 UI 工具](https://github.com/microsoft/microsoft-ui-xaml/issues/4140)。
 
-7. 若要接收来自最新稳定版本的项目留尼汪岛0.5 的所有修补程序，需要将 .NET SDK 显式设置为最新版本。 为此，请将以下项组添加到 .csproj 文件中，并保存项目：
-
-    ```xml
-    <ItemGroup>            
-        <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.18362.16" />
-        <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.18362.16" />
-    </ItemGroup>
-    ```
-
-    请注意，可以在可能的情况下删除 .NET 5.0.6。 
-    
 ## <a name="create-a-new-project-that-uses-project-reunion"></a>创建使用 Project Reunion 的新项目
 
 适用于 Visual Studio 2019 (包含适用于 "桌面应用" 和 "UWP 应用的预览扩展" 的扩展的项目 "0.5 扩展") 提供使用基于 WinUI 3 的 UI 层生成项目的项目模板，并提供对所有其他项目的所有其他 Api 的访问权限。 有关可用项目模板的详细信息，请参阅 [Visual Studio 中的 WinUI 3 项目模板](..\winui\winui3\winui-project-templates-in-visual-studio.md)。
@@ -123,7 +112,9 @@ ms.locfileid: "107574642"
 
     ![正在安装的项目留尼汪岛 NuGet 包的屏幕截图](images/reunion-nuget-install.png)
 
-6. 安装包后，可以在项目中使用以下 Project Reunion API 和组件：
+6. **仅适用于 c #/.NET 5 项目**：为了接收来自最新稳定版本的项目留尼汪岛0.5 的所有修补程序，需要更新项目文件，以将 .net SDK 显式设置为最新版本。 有关详细信息，请参阅 [.NET SDK 参考](index.md#net-sdk-references)。
+
+7. 安装 **ProjectReunion** 包后，可以在项目中使用以下项目占用的 api 和组件：
 
     - [使用 MRT Core 管理资源](mrtcore/mrtcore-overview.md)
     - [使用 DWriteCore 呈现文本](dwritecore.md)
