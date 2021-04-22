@@ -103,9 +103,6 @@
         - name: Python
           tocHref: /windows/python/
           topicHref: /windows/python
-        - name: Node.js
-          tocHref: /windows/nodejs/
-          topicHref: /windows/nodejs
         - name: Android
           tocHref: /windows/android/
           topicHref: /windows/android/overview
@@ -120,3 +117,6 @@
         - name: 适用于 Linux 的 Windows 子系统
           tocHref: /windows/dev-environment/wsl
           topicHref: /windows/wsl/about
+        - name: JavaScript
+          tocHref: /windows/dev-environment/javascript/
+          topicHref: /windows/dev-environment/javascript
