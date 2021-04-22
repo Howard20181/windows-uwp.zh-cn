@@ -6,12 +6,12 @@ ms.date: 06/24/2020
 ms.topic: article
 keywords: windows 10, uwp, 游戏, 设置, directx
 ms.localizationpriority: medium
-ms.openlocfilehash: 553069897cc71b45c34159749b7c16bd0af73c7b
-ms.sourcegitcommit: 249100d990cd5cf2854c59fa66803b7f83d5db96
+ms.openlocfilehash: c192a81208c7cf372e27d9fb30233f8391939688
+ms.sourcegitcommit: 73ec979ce6b9701e7135fd0541bf932b0847908e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105939092"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107881700"
 ---
 # <a name="set-up-the-game-project"></a>设置游戏项目
 
@@ -171,7 +171,7 @@ void GameMain::Run()
 
 如果未选择游戏所使用的功能（如访问适用于全球高分数的 **Internet** ），则无法访问相应的资源和功能。 创建新游戏时，请确保选择游戏所需的 Api 所需的任何功能。
 
-现在，让我们看一下 **DirectX 11 应用 (通用 Windows)** 模板附带的文件的其余部分。
+现在，让我们看看 **Simple3DGameDX** 示例游戏附带的文件的其余部分。
 
 ## <a name="review-other-important-libraries-and-source-code-files"></a>查看其他重要库和源代码文件
 
@@ -189,7 +189,7 @@ void GameMain::Run()
 |VertexShader. hlsl 和 VertexShaderFlat hlsl|着色器|包含基本顶点着色器 (HLSL) 代码的高级着色器语言。|
 |PixelShader. hlsl 和 PixelShaderFlat hlsl|着色器|包含基本像素着色器 (HLSL) 代码的高级着色器语言。|
 |ConstantBuffers. .hlsli|着色器|包含用于将模型视图投影 (MVP) 矩阵和每个顶点的数据传递到顶点着色器的常量缓冲区和着色器结构的数据结构定义。|
-|pch.h/.cpp|不可用|包含常见的 c + +/WinRT、Windows 和 DirectX 包括。|
+|pch.h/.cpp|不适用|包含常见的 c + +/WinRT、Windows 和 DirectX 包括。|
 
 ### <a name="next-steps"></a>后续步骤
 

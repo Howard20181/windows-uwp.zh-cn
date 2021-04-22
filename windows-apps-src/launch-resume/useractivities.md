@@ -5,16 +5,19 @@ keywords: 用户活动, 时间线, cortana 从你离开的位置继续, cortana 
 ms.date: 04/27/2018
 ms.topic: article
 ms.localizationpriority: medium
-ms.openlocfilehash: ebaca3b831ae30637a88d01319a89d139dde1cf8
-ms.sourcegitcommit: 7b2febddb3e8a17c9ab158abcdd2a59ce126661c
+ms.openlocfilehash: 45a1d1d319f67dfac5e7c44a4c65c3bf2e3c0335
+ms.sourcegitcommit: 73ec979ce6b9701e7135fd0541bf932b0847908e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89162621"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107881690"
 ---
 # <a name="continue-user-activity-even-across-devices"></a>即便跨设备，也继续用户活动
 
 本主题介绍如何帮助用户继续执行他们之前在其电脑上及不同设备的应用中所执行的操作。
+
+> [!NOTE]
+> 从2021年6月开始，具有通过 Microsoft 帐户在其 Windows 设备上同步的活动历史记录的用户将无法再使用时间线上传新活动)  (。 它们仍将能够使用时间线，并查看其活动历史记录 (有关其本地 PC) 的最近应用、网站和文件的信息。 AAD 连接的帐户不会受到影响。 
 
 ## <a name="user-activities-and-timeline"></a>用户活动和时间线
 
@@ -68,7 +71,7 @@ private async Task GenerateActivityAsync()
 上述 `GenerateActivityAsync()` 方法中的第一行会获取用户的 [UserActivityChannel](/uwp/api/windows.applicationmodel.useractivities.useractivitychannel)。 这是此应用的活动将发布到的源。 下一行查询名为 `MainPage` 的活动的渠道。
 
 * 应用应以后列方式命名活动，即每次用户位于应用中的某个特定位置时都会生成相同的 ID。 例如，如果应用基于页面，则使用该页面的标识符；如果应用基于文档，则使用该文档的名称（或名称的哈希）。
-* 如果源中有一个现有的活动具有相同的 ID，则系统将从渠道返回该活动，同时将 `UserActivity.State` 设置为[已发布](/uwp/api/windows.applicationmodel.useractivities.useractivitystate)）。 如果没有具有该名称的活动，则会返回新活动，同时将 `UserActivity.State` 设置为**新建**。
+* 如果源中有一个现有的活动具有相同的 ID，则系统将从渠道返回该活动，同时将 `UserActivity.State` 设置为[已发布](/uwp/api/windows.applicationmodel.useractivities.useractivitystate)）。 如果没有具有该名称的活动，则会返回新活动，同时将 `UserActivity.State` 设置为 **新建**。
 * 活动的作用域为相应的应用。 不必担心活动 ID 与其他应用中的 ID 产生冲突。
 
 获取或创建 **UserActivity** 后，指定其他两个必填字段：`UserActivity.VisualElements.DisplayText` 和 `UserActivity.ActivationUri`。
@@ -77,7 +80,7 @@ private async Task GenerateActivityAsync()
 
 由于在此情况下，`ActivationUri` 是自定义方案，所以我们还需要在应用程序清单中注册该协议。 这是在 Package.appmanifest XML 文件中，或使用设计器完成的。
 
-若要使用设计器进行更改，可双击项目中的 Package.appmanifest 文件以启动设计器，选择**声明**选项卡，并添加**协议**定义。 目前仅需要填写**名称**属性。 它应该与我们上面指定的 URI `my-app` 相匹配。
+若要使用设计器进行更改，可双击项目中的 Package.appmanifest 文件以启动设计器，选择 **声明** 选项卡，并添加 **协议** 定义。 目前仅需要填写 **名称** 属性。 它应该与我们上面指定的 URI `my-app` 相匹配。
 
 现在，我们需要编写一些代码，以指示应用在被协议激活时应执行什么操作。 我们将重写 App.xaml.cs 中的 `OnActivated` 方法，以将 URI 传递到主页，如下所示：
 
@@ -152,10 +155,10 @@ Windows.UI.Shell.AdaptiveCardBuilder.CreateAdaptiveCardFromJson(jsonCardText); /
 如果应用跨平台（例如，在 Android 和 iOS 上）运行，或在云中维护用户状态，可通过 [Microsoft Graph](https://developer.microsoft.com/graph) 发布 UserActivities。
 在使用 Microsoft 帐户对应用程序或服务进行了身份验证后，只需通过两个简单 REST 调用，使用上文所述的相同数据，生成[活动](/graph/api/resources/projectrome-activity)和[历史记录](/graph/api/resources/projectrome-historyitem)对象。
 
-## <a name="summary"></a>“摘要”
+## <a name="summary"></a>摘要
 
 可使用 [UserActivity](/uwp/api/windows.applicationmodel.useractivities) API 在时间线和 Cortana 中显示应用。
-* 了解有关[ **UserActivity** API 的详细信息](/uwp/api/windows.applicationmodel.useractivities)
+* 了解有关 [ **UserActivity** API 的详细信息](/uwp/api/windows.applicationmodel.useractivities)
 * 查看[示例代码](https://github.com/Microsoft/project-rome)。
 * 请参阅[更复杂的自适应卡片](https://adaptivecards.io/)。
 * 通过 [Microsoft Graph](https://developer.microsoft.com/graph) 从 iOS、Android 或 web 服务发布 **UserActivity**。
