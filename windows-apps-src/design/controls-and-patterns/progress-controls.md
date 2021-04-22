@@ -12,12 +12,12 @@ design-contact: jeffarn
 dev-contact: mitra
 doc-status: Published
 ms.localizationpriority: medium
-ms.openlocfilehash: 24ba67dfa51c039055cc5bc4cb31d4aff4de6765
-ms.sourcegitcommit: b99fe39126fbb457c3690312641f57d22ba7c8b6
+ms.openlocfilehash: 95adaae83596ab33bccbf5e0268d21dbfd53bad2
+ms.sourcegitcommit: 8f7d30ad2040a3a4b0cb520b86f8fb448086aae6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603878"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107562510"
 ---
 # <a name="progress-controls"></a>进度控件
 
@@ -172,13 +172,13 @@ Imports muxc = Microsoft.UI.Xaml.Controls
 
 **ProgressRing - 不确定**
 
-![ProgressRing 不确定示例](images/PR_IndeterminateExample.png)
+![ProgressRing 不确定示例](images/progress-ring-indeterminate-example.png)
 
 当暂时不允许用户与应用进行任何进一步交互，或应用正在等待用户输入以便继续运行时，应使用不确定性 ProgressRing。 上面的“正在登录…”一例是最适合使用 ProgressRing 的场景：在登录完成前，用户无法继续使用该应用。
 
 ProgressRing - 确定
 
-![ProgressRing 确定示例](images/progress_ring_determinate_example.png)
+![ProgressRing 确定示例](images/progress-ring-determinate-example.png)
 
 如果操作持续时间已知且需要环形视觉对象，则最好使用确定 ProgressRing 显示何时安装、下载、设置等。
 
